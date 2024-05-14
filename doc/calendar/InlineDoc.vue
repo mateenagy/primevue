@@ -3,7 +3,15 @@
         <p>Calendar is used a controlled input component with <i>v-model</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Calendar v-model="date" inline showWeek />
+        <Calendar v-model="date" inline showWeek>
+            <template #header="{ year, month, onPrevButtonClick, onNextButtonClick }">
+                <div class="flex w-full justify-content-between align-items-center">
+                    <button @click="onPrevButtonClick">prev</button>
+                    <span>{{ year }} {{ month }}</span>
+                    <button @click="onNextButtonClick">next</button>
+                </div>
+            </template>
+        </Calendar>
     </div>
     <DocSectionCode :code="code" />
 </template>
