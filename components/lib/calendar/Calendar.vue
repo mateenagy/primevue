@@ -34,6 +34,7 @@
                             <div v-for="(month, groupIndex) of months" :key="month.month + month.year" :class="cx('group')"
                                 v-bind="ptm('group')">
                                 <div :class="cx('header')" v-bind="ptm('header')">
+                                    <!-- HEADER SLOT WITH SOME EXPOSED VALUE FOR BETTER TEMPLATING -->
                                     <slot name="header" :year="getYear(month)" :month="getMonthName(month.month)"
                                         :onPrevButtonClick="onPrevButtonClick" :onNextButtonClick="onNextButtonClick">
                                         <button v-show="showOtherMonths ? groupIndex === 0 : false" :ref="previousButtonRef"
